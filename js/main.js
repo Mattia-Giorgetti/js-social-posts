@@ -86,7 +86,7 @@ function creaPost() {
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">${obj.likes}</b> persone
+                        Piace a <b id="like-counter-${obj.id}" class="js-likes-counter">${obj.likes}</b> persone
                     </div>
                 </div> 
             </div>                    
@@ -99,15 +99,14 @@ creaPost();
 
 let likeBtn =  document.querySelectorAll('.like-button');
 let thumb = document.querySelectorAll('.like-button__icon');
-console.log(likeBtn);
+let miPiace = document.querySelectorAll('.like-button__label');
 
 for(let i = 0; i < likeBtn.length; i++){
-    for(let x = 0; x < thumb.length; x++){
 
         likeBtn[i].addEventListener('click', function() {
-            thumb[x].classList.add('like-button--liked');
+            thumb[i].classList.add('like-button--liked');
+            miPiace[i].classList.add('like-button--liked');
         })        
-    }
 }
 
 
