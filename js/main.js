@@ -93,6 +93,7 @@ function creaPost() {
         `;
         postHTML.innerHTML = postTemplate;
         container.appendChild(postHTML);
+        
     }); 
 }
 creaPost();
@@ -100,14 +101,19 @@ creaPost();
 let likeBtn =  document.querySelectorAll('.like-button');
 let thumb = document.querySelectorAll('.like-button__icon');
 let miPiace = document.querySelectorAll('.like-button__label');
+let likesHTML = document.querySelectorAll('.js-likes-counter');
 
 for(let i = 0; i < likeBtn.length; i++){
-
-        likeBtn[i].addEventListener('click', function() {
-            thumb[i].classList.add('like-button--liked');
-            miPiace[i].classList.add('like-button--liked');
-        })        
+    
+    likeBtn[i].addEventListener('click', function() {
+        thumb[i].classList.add('like-button--liked');
+        miPiace[i].classList.add('like-button--liked');
+        likesHTML[i].innerHTML = parseInt(likesHTML[i].innerHTML) + 1;
+    })        
 }
+
+
+
 
 
 
