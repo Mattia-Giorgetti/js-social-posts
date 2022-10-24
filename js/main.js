@@ -104,11 +104,20 @@ let miPiace = document.querySelectorAll('.like-button__label');
 let likesHTML = document.querySelectorAll('.js-likes-counter');
 
 for(let i = 0; i < likeBtn.length; i++){
+    let clicked = true;
     
     likeBtn[i].addEventListener('click', function() {
-        thumb[i].classList.add('like-button--liked');
-        miPiace[i].classList.add('like-button--liked');
-        likesHTML[i].innerHTML = parseInt(likesHTML[i].innerHTML) + 1;
+        if(clicked){
+            thumb[i].classList.add('like-button--liked');
+            miPiace[i].classList.add('like-button--liked');
+            likesHTML[i].innerHTML = parseInt(likesHTML[i].innerHTML) + 1;
+            clicked = false;
+        } else {
+            thumb[i].classList.remove('like-button--liked');
+            miPiace[i].classList.remove('like-button--liked');
+            likesHTML[i].innerHTML = parseInt(likesHTML[i].innerHTML) - 1;
+            clicked = true;
+        }
     })        
 }
 
