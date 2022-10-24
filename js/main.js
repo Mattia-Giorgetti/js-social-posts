@@ -97,7 +97,18 @@ function creaPost() {
 }
 creaPost();
 
+let likeBtn =  document.querySelectorAll('.like-button');
+let thumb = document.querySelectorAll('.like-button__icon');
+console.log(likeBtn);
 
+for(let i = 0; i < likeBtn.length; i++){
+    for(let x = 0; x < thumb.length; x++){
+
+        likeBtn[i].addEventListener('click', function() {
+            thumb[x].classList.add('like-button--liked');
+        })        
+    }
+}
 
 
 
