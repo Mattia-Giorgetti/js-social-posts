@@ -57,8 +57,19 @@ const posts = [
 ];
 const container = document.getElementById('container');
 
+
+
+
 function creaPost() {
     posts.forEach((obj) => {
+        // Calcolo data in formato italiano
+        let postDate = new Date(obj.created);
+        let dd = String(postDate.getDate()).padStart(2, '0');
+        let mm = String(postDate.getMonth() + 1).padStart(2, '0'); 
+        let yyyy = postDate.getFullYear();
+        postDate = dd + '/' + mm + '/' + yyyy;
+
+        
         let postHTML = document.createElement('div');
         postHTML.classList.add('post');
         let postTemplate = `
@@ -69,7 +80,7 @@ function creaPost() {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${obj.author.name}</div>
-                        <div class="post-meta__time">${obj.created}</div>
+                        <div class="post-meta__time">${postDate}</div>
                     </div>                    
                 </div>
             </div>
